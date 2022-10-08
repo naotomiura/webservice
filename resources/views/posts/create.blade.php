@@ -5,7 +5,7 @@
         <title>Blog</title>
     </head>
     <body>
-        <h1>NAOTIN</h1>
+
         
         <form action="/posts" method="POST">
             @csrf
