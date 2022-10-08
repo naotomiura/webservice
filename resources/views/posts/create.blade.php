@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Posts</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-
-        
-        <form action="/posts" method="POST">
-            @csrf
-            <div class="title">
-                <h2>Title</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+        <h1 class="title">
+            {{ $post->title }}
+        </h1>
+        <div class="content">
+            <div class="content__post">
+                <h3>本文</h3>
+                <p>{{ $post->body }}</p>    
             </div>
-            <div class="body">
-                <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
-            </div>
-            <input type="submit" value="保存"/>
-        </form>
+        </div>
         
-        <div class="back">[<a href="/">back</a>]</div>
+        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+        
+        <div class="footer">
+            <a href="/">戻る</a>
+        </div>
     </body>
 </html>
