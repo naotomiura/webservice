@@ -15,6 +15,9 @@
                 font-family: 'Zen Kaku Gothic New', sans-serif;
             }
         </style>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
     </head>
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
@@ -44,15 +47,15 @@
                         <form action="/posts" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="quiztitle mt-2">
+                                <input type="hidden" name="id" value="{{$postid+1}}"/>
                                 <h5 class='mt-2 ml-2 mb-2'>タイトル</h5>
-                                <textarea rows="1" cols="70" class='mt-2 ml-2 mb-2' name="post[title]"></textarea>
+                                <textarea rows="1" cols="70" class='mt-2 ml-2 mb-2' name="title"></textarea>
                                 <h5 class='mt-2 ml-2 mb-2'>サブタイトル</h5>
-                                <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="post[subtitle]"></textarea>
+                                <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="subtitle"></textarea>
                                 
-                                <input class='mt-2 ml-2 mb-2' type='file' name="post[image]" accept="image/*"/>
+                                <input id="file" class='mt-2 ml-2 mb-2' type='file' name="image" accept="image/*"/>
                                 
-                                
-                                <select name="post[category_id]">
+                                <select name="category_id">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -77,5 +80,8 @@
                 
             </div>
         </div>
+        
+        
+        
     </body>
 </html>

@@ -20,7 +20,12 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
      Route::get('/', 'index')->name('index');
      Route::get('/posts/create', 'create')->name('create');
      
+     //解答
+     Route::post('/posts/answer', 'answerstore')->name('answerstore');
+     
+     // 記事
      Route::post('/posts', 'store')->name('store');
+     // 問題
      Route::post('/posts/quiz', 'quizstore')->name('quizstore');
      
      Route::get('/posts/solution', 'solution')->name('solution');
@@ -29,8 +34,9 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
      Route::get('/posts/{post}/edit', 'edit')->name('edit');
      Route::get('/posts/{post}/editquiz', 'quizedit')->name('quizedit');
      
-     Route::post('/posts/{post}', 'update')->name('update');
-     Route::post('/posts/{post}', 'quizupdate')->name('quizupdate');
+     // データ更新
+     Route::put('/posts/{post}/update', 'update')->name('update');
+     Route::put('/posts/{post}/updatequiz', 'quizupdate')->name('quizupdate');
      
      Route::delete('/posts/{post}', 'delete')->name('delete');
 });

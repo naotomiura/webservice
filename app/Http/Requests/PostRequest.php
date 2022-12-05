@@ -10,7 +10,7 @@ class PostRequest extends FormRequest
     {
         return [
             'post.title' => 'required|string|max:100',
-            'post.image' => 'required|string|max:100',
+            'post.image' => 'required',
         ];
     }
 }

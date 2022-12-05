@@ -46,13 +46,13 @@
                 
                     <div class='mb-5 posts mx-auto border col-12'>
                         <!--<h1>クイズ作成</h1>-->
-                        <form action="/posts" method="POST">
+                        <form action="/posts/{{ $post->id }}/update" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                                 <div class='title'></div>
                                     <h5 class='mt-2 ml-2 mb-2'>タイトル</h5>
                                     <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="post[title]">{{ $post->title }}</textarea>
-                                    <input class='mt-2 ml-2 mb-2' type="file" name="post[image]" placeholder="image追加" value="{{ old('post.image') }}"/>
+                                    <input class='mt-2 ml-2 mb-2' type="file" name="post[image]" value="{{ $post->image }}"/>
                                     
                                     <select name="post[category_id]">
                                         @foreach($categories as $category)

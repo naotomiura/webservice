@@ -40,54 +40,50 @@
         
         <div class="container">
 	        <div class="row">
-	            
+	            <!--問題-->
                 <div class='posts mx-auto border col-7'>
                     <h3 class="mt-5 mb-5">新着記事</h3>
-                    <input type="file" name="image">
+                    
+                    <div class='border mb-4'>
+                        <h4>ユーザー名：{{ Auth::user()->name }}</h4>
+                        <h4>正答率：{{$average}}</h4>
+                        <h4>ランキング：{{$ranking}}</h4>
+                    </div>
+                    
                     @foreach ($posts as $post) 
                         <div class='post border mb-4'>
                             <div class="container">
     	                        <div class="row">
                                     <div class='col-6'>
-                                        <img src="/images/{{ $post->image }}.jpg" width="300" height="200">
+                                        <img src="{{ asset($post->image) }}" width="300" height="200">
                                     </div>
                                     <div class='col-6'>
-                                        <h4 class='title border-bottom'><a href="/posts/{{ $post->id }}"> {{ $post->title }} </a></h4>
-                                        <h6 class='title border-bottom'>{{ $post->subtitle }} </a></h6>
+                                        <h4 class='title border-bottom'><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h4>
                                         <!--$postsのcategory-->
-                                        <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }} </a>
+                                        <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
 
-                                        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+                                        <form action="/posts/{{ $post->id }}/edit">
+                                            @csrf
+                                            <button class='col-4' type="button">edit</button> 
+                                        </form>
                                         
                                         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class='col-4' type="button" onclick="deletePost({{ $post->id }})">delete</button> 
                                         </form>
-                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                    <div class='paginate col-6'>
-                        {{ $posts->links() }}
-                    </div>
-                </div>
-                
-                <!--右メニュー-->
-                <div class='container mx-auto border col-3'>
-                    <div class='categorylist mt-2 mb-2'>
-                        <div class="border-bottom mb-2">カテゴリ</div>
-                        @foreach ($categories as $category)
-                        <p><a href="/categories/{{ $category->id }}">{{ $category->name }} </a></p>
-                        @endforeach
-                    </div>
                 </div>
             </div>
         </div>
         
-        
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
         
         <script>
             function deletePost(id) {
@@ -98,9 +94,5 @@
                 }
             }
         </script>
-        <!-- Bootstrap Javascript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -46,27 +46,15 @@
                 
                     <div class='mb-5 posts mx-auto border col-12'>
                         <!--<h1>クイズ作成</h1>-->
-                        <form action="/posts" method="POST">
+                        <form action="/posts/{{ $post->id }}/updatequiz" method="POST">
                             @csrf
                             @method('PUT')
-                                    <h5 class='mt-2 ml-2 mb-2'>タイトル</h5>
-                                    <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="post[title]">{{ $post->title }}</textarea>
-                                    <input class='mt-2 ml-2 mb-2' type="file" name="post[image]" placeholder="image追加" value="{{ old('post.image') }}"/>
-                                    
-                                    <select name="post[category_id]">
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    
-                                    <input type="hidden" name="post[]">
-                            
                             <div class="quiz mt-2">
                                 
                                     @foreach ($quizzes as $quiz)
                                         <div class='post border mb-4'>
                                             <div class='quiz'>
-                                                        <h3 class='border-bottom mt-2 ml-2 mb-2 mr-2'>問題{{$quiz->id}}</h3>
+                                                        <h3 class='border-bottom mt-2 ml-2 mb-2 mr-2'>問題</h3>
                                                         <h5 class='mt-2 ml-2 mb-2'>問題文</h5>
                                                         <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="quiz[problem]" required>{{ $quiz->problem }}</textarea>
                                                 <div class="container">

@@ -47,7 +47,7 @@
                             <div class="container">
     	                        <div class="row">
                                     <div class='col-6'>
-                                        <img src="/images/{{ $post->image }}.jpg" width="300" height="200">
+                                        <img src="{{ asset($post->image) }}" width="300" height="200">
                                     </div>
                                     <div class='col-6'>
                                         <h4 class='title border-bottom'><a href="/posts/{{ $post->id }}"> {{ $post->title }} </a></h4>

@@ -1,6 +1,6 @@
 id,title,subtitle,image,category_id
-1,メタバースの基礎を理解しよう,メタバース,image1,2
-2,プログラミングとは？,プログラミング,image2,1
-3,創設者当てられるかな？,創設者,image3,2,
-4,日本で作られた作品はどれ？,作品,image4,3
-5,2025年の崖とは？,2025年,image5,2
+1,メタバースの基礎を理解しよう,メタバース,https://res.cloudinary.com/dtwwjs2dy/image/upload/v1669091765/cld-sample-4.jpg,2
+2,プログラミングとは？,プログラミング,https://res.cloudinary.com/dtwwjs2dy/image/upload/v1669091764/cld-sample-3.jpg,1
+3,創設者当てられるかな？,創設者,https://res.cloudinary.com/dtwwjs2dy/image/upload/v1669091764/cld-sample-2.jpg,2,
+4,日本で作られた作品はどれ？,作品,https://res.cloudinary.com/dtwwjs2dy/image/upload/v1669091763/cld-sample.jpg,3
+5,2025年の崖とは？,2025年,https://res.cloudinary.com/dtwwjs2dy/image/upload/v1669091735/sample.jpg,2

@@ -41,36 +41,9 @@
         <div class="container">
 	        <div class="row">
                 <div class='posts mx-auto border col-7'>
-                    <h3 class="mt-5 mb-5">{{ $post->title }}</h3>
-                    <!--$post->image = 'storage/' . 'images' . '/' . 'image'.$request->id;-->
-                    <img class="mt-5 mb-5" src="{{ asset($post->image) }}" width="600" height="400">
-                    
-                    <form action="/posts/answer" method="POST">
-                    @csrf
-                        @foreach ($quizzes as $quiz) 
-                            <div class='post border mb-4'>
-                                <div class='quiz'>
-                                    <h3 class='border-bottom mt-2 mb-2 ml-4 mr-4'> 問題</h3>
-                                    <h3 class='mb-5 ml-4 mr-4'>{{ $quiz->problem }}</h3>
-                                    <div class="container">
-                                        <input type="hidden" name="user_id[]" value="{{ Auth::user() ->id}}"/>
-                                        <input type="hidden" name="quiz_id[]" value="{{ $quiz ->id}}"/>
-                                        <div class="row">
-                                            <p name="useranswer" class='border border-dark col-5 ml-4 mr-4 text-center' type="submit" value="">①{{$quiz->choice1 }} </p>
-                                            <p name="useranswer" class='border border-dark col-5 ml-4 mr-4 text-center' type="submit" value="">②{{$quiz->choice2 }} </p>
-                                            <p name="useranswer" class='border border-dark col-5 ml-4 mr-4 text-center' type="submit" value="">③{{$quiz->choice3 }} </p>
-                                            <p name="useranswer" class='border border-dark col-5 ml-4 mr-4 text-center' type="submit" value="">④{{$quiz->choice4 }} </p>
-                                        </div>
-                                        <input type="" name="useranswer[]" placeholder="解答欄" value=""/>
-                                    </div>
-                                    <h5 class='border-bottom mt-5 ml-4 mr-4'> 解答：{{ $quiz->solution }} </h5>
-                                    <h5 class='ml-4 mr-4'> {{ $quiz->explanation }} </h5>
-                                </div>
-                            </div>
-                        @endforeach
-                    <input class='mt-2 ml-2 mb-2' type="submit" value="結果を見る"/>
+                    <p>点数</p>
+                    <p>{{$count}}/3</p>
                     <div class="mt-2 ml-2 mb-2 back">[<a href="/">back</a>]</div>
-                    </form>
                 </div>
                 
                 <!--右メニュー-->

@@ -41,30 +41,29 @@
 	        <div class="row">
 	            <div class='mb-5 mt-3 posts mx-auto border col-7'>
 	                <h3 class='mt-5 ml-2 mb-5'>クイズ作成</h3>
-                        
                         <form action="/posts/quiz" method="POST">
                             @csrf
-                                    @for($i = 1 ; $i <= 3; $i ++)
-                                        <div class='post border mb-4'>
-                                            <div class='quiz'>
-                                                        <input value={{postid}} type="hidden" name="quiz[post_id]">
-                                                        <h3 class='border-bottom mt-2 ml-2 mb-2 mr-2'>問題{{$i}}</h3>
-                                                        <h5 class='mt-2 ml-2 mb-2'>問題文</h5>
-                                                        <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="quiz[problem]" required></textarea>
-                                                <div class="container">
-	                                                <div class="row">
-                                                        <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢1" type="text" name="quiz[choice1]">
-                                                        <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢2" type="text" name="quiz[choice2]">
-                                                        <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢3" type="text" name="quiz[choice3]">
-                                                        <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢4" type="text" name="quiz[choice4]">
-                                                    </div>
+                                @for($i = 1 ; $i <= 3; $i ++)
+                                    <div class='post border mb-4'>
+                                        <div class='quiz'>
+                                                    <input value={{$postid}} type="hidden" name="post_id[]">
+                                                    <h3 class='border-bottom mt-2 ml-2 mb-2 mr-2'>問題{{$i}}</h3>
+                                                    <h5 class='mt-2 ml-2 mb-2'>問題文</h5>
+                                                    <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="problem[]" required></textarea>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢1" type="text" name="choice1[]">
+                                                    <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢2" type="text" name="choice2[]">
+                                                    <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢3" type="text" name="choice3[]">
+                                                    <input class='border border-dark col-5 mt-2 ml-4 mr-4 text-center' placeholder="選択肢4" type="text" name="choice4[]">
                                                 </div>
-                                                        <input size="5" class='mt-2 ml-2 mb-2' placeholder="解答" type="text" name="quiz[solution]">
-                                                        <h5 class='mt-2 ml-2 mb-2'>解答説明</h5>
-                                                        <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="quiz[explanation]"></textarea>
                                             </div>
+                                                    <input size="5" class='mt-2 ml-2 mb-2' placeholder="解答" type="text" name="solution[]">
+                                                    <h5 class='mt-2 ml-2 mb-2'>解答説明</h5>
+                                                    <textarea rows="2" cols="70" class='mt-2 ml-2 mb-2' name="explanation[]"></textarea>
                                         </div>
-                                    @endfor
+                                    </div>
+                                @endfor
                                 <input class='mt-2 ml-2 mb-2' type="submit" value="保存"/>
                             <div class="mt-2 ml-2 mb-2 back">[<a href="/">back</a>]</div>
                         </form>
