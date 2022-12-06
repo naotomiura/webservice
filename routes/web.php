@@ -39,6 +39,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
      Route::put('/posts/{post}/updatequiz', 'quizupdate')->name('quizupdate');
      
      Route::delete('/posts/{post}', 'delete')->name('delete');
+     
+     Route::get('/portfolio', 'portfolio')->name('portfolio');
 });
 
 Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){
