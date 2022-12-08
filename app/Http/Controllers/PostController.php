@@ -62,6 +62,14 @@ class PostController extends Controller
             'categories' => $category->get()
         ]);
     }
+    
+    public function home(Post $post,Category $category)
+    {
+        return view('member/posts/solution')->with([
+            'posts' => $post->getPaginateByLimit(),
+            'categories' => $category->get()
+        ]);
+    }
 
     public function create(Category $category,Post $post)
     {
