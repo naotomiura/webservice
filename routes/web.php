@@ -31,6 +31,8 @@ Route::post('login', [Controllers\LoginController::class, 'login'])->name('login
 Route::get('logout', [Controllers\LoginController::class, 'logout'])->name('login.logout');
 Route::get('/', [Controllers\PostController::class, 'home'])->name('index');
 
+// ポートフォリオ
+Route::get('/portfolio', [Controllers\PortfolioController::class, 'portfolio'])->name('portfolio');
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
      // Route::get('/', 'index')->name('index');
@@ -55,8 +57,6 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
      Route::put('/posts/{post}/updatequiz', 'quizupdate')->name('quizupdate');
      
      Route::delete('/posts/{post}', 'delete')->name('delete');
-     
-     Route::get('/portfolio', 'portfolio')->name('portfolio');
 });
 
 Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){

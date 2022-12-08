@@ -213,6 +213,6 @@ class PostController extends Controller
     
     public function portfolio()
     {
-        return view('/portfolio/home');
+        return view('portfolio/home');
     }
 }
