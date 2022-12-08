@@ -74,14 +74,14 @@
           <dd>ページの役割や機能に応じたタグの使用を心掛けています。</dd>
           <dt>CSS</dt>
           <dd>BEMのルールに沿ったCSS設計を行います。</dd>
-          <dt>JavaScript</dt>
-          <dd>Webサイトに簡単なアニメーションを施すことができます。</dd>
-          <dt>jQuery</dt>
-          <dd>JavaScriptと同様、Webサイトに簡単なアニメーションを施すことができます。</dd>
-          <dt>PHP</dt>
-          <dd>テンプレートタグを駆使して、WebサイトのWordPress化が可能です。</dd>
-          <dt>WordPress</dt>
-          <dd>Webサイトをお客さま自身で管理できるようサポートいたします。</dd>
+          <!--<dt>JavaScript</dt>-->
+          <!--<dd>Webサイトに簡単なアニメーションを施すことができます。</dd>-->
+          <!--<dt>jQuery</dt>-->
+          <!--<dd>JavaScriptと同様、Webサイトに簡単なアニメーションを施すことができます。</dd>-->
+          <!--<dt>PHP</dt>-->
+          <!--<dd>テンプレートタグを駆使して、WebサイトのWordPress化が可能です。</dd>-->
+          <!--<dt>WordPress</dt>-->
+          <!--<dd>Webサイトをお客さま自身で管理できるようサポートいたします。</dd>-->
         </dl>
       </section>
 
