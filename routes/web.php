@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers;
 
 // GET　・・・　（データを取得する基本的なもの）
 // POST　・・・　（データの追加に使用）
@@ -12,12 +14,26 @@ use App\Http\Controllers\QuizController;
 // DELETE　・・・　（データの削除に使用）
 // OPTIONS　・・・　（使えるメソッド一覧を表示）
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// 管理画面（admin/配下に置くことを想定しています。groupメソッドでまとめると便利です。）
+Route::prefix('admin')->group(function () {
+    Route::get('login', [Admin\LoginController::class, 'index'])->name('admin.login.index');
+    Route::post('login', [Admin\LoginController::class, 'login'])->name('admin.login.login');
+    Route::get('logout', [Admin\PostController::class, 'adminindex'])->name('admin.login.logout');
+});
+// 管理者（administratorsテーブル）未認証の場合にログインフォームに強制リダイレクトさせるミドルウェアを設定する。  
+Route::prefix('admin')->middleware('auth:administrators')->group(function () {
+    Route::get('/',[PostController::class, 'adminindex'])->name('admin.index');
+});
+
+// 会員画面
+Route::get('login', [Controllers\LoginController::class, 'index'])->name('login.index');
+Route::post('login', [Controllers\LoginController::class, 'login'])->name('login.login');
+Route::get('logout', [Controllers\LoginController::class, 'logout'])->name('login.logout');
+Route::get('/', [Controllers\PostController::class, 'home'])->name('index');
+
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
-     Route::get('/', 'index')->name('index');
+     // Route::get('/', 'index')->name('index');
      Route::get('/posts/create', 'create')->name('create');
      
      //解答
@@ -39,6 +55,8 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
      Route::put('/posts/{post}/updatequiz', 'quizupdate')->name('quizupdate');
      
      Route::delete('/posts/{post}', 'delete')->name('delete');
+     
+     Route::get('/portfolio', 'portfolio')->name('portfolio');
 });
 
 Route::controller(CategoryController::class)->middleware(['auth'])->group(function(){

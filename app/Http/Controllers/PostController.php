@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    public function index(Post $post,Category $category)
+    public function adminindex(Post $post,Category $category)
     {
         $user = Auth::id();
         $average = Answer::selectRaw('AVG(correct) as average')
@@ -62,10 +62,13 @@ class PostController extends Controller
             'categories' => $category->get()
         ]);
     }
-
-    public function show(Post $post)
+    
+    public function home(Post $post,Category $category)
     {
-        return view('posts/show')->with(['post' => $post]);
+        return view('member/posts/solution')->with([
+            'posts' => $post->getPaginateByLimit(),
+            'categories' => $category->get()
+        ]);
     }
 
     public function create(Category $category,Post $post)
@@ -206,5 +209,10 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect('/');
+    }
+    
+    public function portfolio()
+    {
+        return view('/portfolio/home');
     }
 }
