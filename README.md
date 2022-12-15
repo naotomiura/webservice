@@ -11,18 +11,11 @@
 
 # Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
-* huga 3.5.2
-* hogehuga 1.0.2
+""を動かすのに必要なライブラリなどを列挙する
 
 # Installation
 
 Requirementで列挙したライブラリなどのインストール方法を説明する
-
-```bash
-pip install huga_package
-```
 
 # Note
 
