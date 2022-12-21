@@ -10,8 +10,10 @@
 誰でも楽しむことができる難易度
 
 # Requirement
-
-""を動かすのに必要なライブラリなどを列挙する
+"cloudinary-labs/cloudinary-laravel": "^2.0"
+"laravel/breeze": "^1.14"
+"laravel/framework": "^9.19"
+"tailwindcss": "^3.1.0"
 
 # Note
 
