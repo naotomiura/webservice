@@ -8,6 +8,9 @@
 
 誰でも楽しむことができる難易度
 
+# ER　shape
+<img width="1002" alt="スクリーンショット 2022-12-21 19 05 04" src="https://user-images.githubusercontent.com/85100588/208878647-74246ad5-cf3f-42fa-83aa-f9879d9e7984.png">
+
 # Requirement
 "cloudinary-labs/cloudinary-laravel": "^2.0"
 "laravel/breeze": "^1.14"
